@@ -21,4 +21,15 @@ describe('In Memory User Repository', () => {
       expect(user.name).toBe(name)
     })
   })
+
+  describe('#findAllUsers', () => {
+    it('should return all users', async () => {
+      const users: UserData[] = [
+        { name: 'any name', email: 'email@mail.com' }
+      ]
+      const userRepo = new InMemoryUserRepository(users)
+      const result = await userRepo.findAllUsers()
+      expect(result.length).toBe(1)
+    })
+  })
 })
