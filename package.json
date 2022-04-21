@@ -4,7 +4,7 @@
   "description": "Projeto de exemplo para Clean Architecture",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "Lucas de Freitas Fonseca Mendes",
