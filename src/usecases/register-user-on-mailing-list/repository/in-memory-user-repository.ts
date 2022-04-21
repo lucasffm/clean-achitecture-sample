@@ -8,19 +8,28 @@ export class InMemoryUserRepository implements UserRepository {
     this.users = users
   }
 
-  add (user: UserData): Promise<void> {
-    throw new Error('Method not implemented.')
+  async add (user: UserData): Promise<void> {
+    const exists = await this.exists(user)
+    if (!exists) {
+      this.users.push(user)
+    }
   }
 
-  findUserByEmail (email: string): Promise<UserData> {
-    return null
+  async findUserByEmail (email: string): Promise<UserData> {
+    const user = this.users.find(user => user.email === email)
+    if (!user) {
+      return null
+    }
+    return user
   }
 
-  findAllUsers (): Promise<UserData[]> {
-    throw new Error('Method not implemented.')
+  async findAllUsers (): Promise<UserData[]> {
+    return this.users
   }
 
-  exists (user: UserData): Promise<boolean> {
-    throw new Error('Method not implemented.')
+  async exists (user: UserData): Promise<boolean> {
+    const alreadyExists = await this.findUserByEmail(user.email)
+
+    return !!alreadyExists
   }
 }
