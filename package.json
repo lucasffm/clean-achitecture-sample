@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Lucas de Freitas Fonseca Mendes",
   "license": "ISC",
   "devDependencies": {
     "@shelf/jest-mongodb": "^1.2.3",
